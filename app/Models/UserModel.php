@@ -13,4 +13,13 @@ class UserModel extends Model
   protected $useTimestamps = true;
   protected $createdField  = 'time_created';
   protected $updatedField  = 'time_created';
+
+  public function getUsers($id = false)
+  {
+    if ($id === false) {
+      return $this->findAll();
+    }
+
+    return $this->where(['id' => $id])->first();
+  }
 }

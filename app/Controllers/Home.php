@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
+
 class Home extends BaseController
 {
     public function index($page = 'home_page')
@@ -11,9 +13,14 @@ class Home extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
         }
 
+        $userModel = model(UserModel::class);
+
         $session = session();
-        $data['title'] = 'Home';
-        $data['session'] = $session;
+        $data = [
+            'title' => 'Home',
+            'session' => $session,
+            'users' => $userModel->getUsers(),
+        ];
         return view('templates/header', $data) . view('home_page');
     }
 }
