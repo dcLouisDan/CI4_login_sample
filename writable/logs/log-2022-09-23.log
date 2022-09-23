@@ -1,0 +1,50 @@
+CRITICAL - 2022-09-23 02:21:35 --> Undefined variable $errors
+in APPPATH/Views/auth/login.php on line 51.
+ 1 APPPATH/Views/auth/login.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $errors', 'APPPATH/Views/auth/login.php', 51)
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/auth/login.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1142): CodeIgniter\View\View->render('auth/login', [], true)
+ 5 APPPATH/Controllers/Auth.php(41): view('auth/login', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(907): App\Controllers\Auth->signup()
+ 7 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-09-23 05:29:39 --> Class "Config\App\Filters\AuthGuard" not found
+in SYSTEMPATH/Filters/Filters.php on line 166.
+ 1 SYSTEMPATH/CodeIgniter.php(431): CodeIgniter\Filters\Filters->run('/', 'before')
+ 2 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 3 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-09-23 05:50:44 --> Undefined variable $title
+in APPPATH/Views/templates/header.php on line 17.
+ 1 APPPATH/Views/templates/header.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'APPPATH/Views/templates/header.php', 17)
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/templates/header.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1142): CodeIgniter\View\View->render('templates/header', [], true)
+ 5 APPPATH/Controllers/Home.php(16): view('templates/header')
+ 6 SYSTEMPATH/CodeIgniter.php(907): App\Controllers\Home->index()
+ 7 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-09-23 05:51:54 --> Undefined variable $session
+in APPPATH/Views/home_page.php on line 3.
+ 1 APPPATH/Views/home_page.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $session', 'APPPATH/Views/home_page.php', 3)
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/home_page.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1142): CodeIgniter\View\View->render('home_page', [], true)
+ 5 APPPATH/Controllers/Home.php(16): view('home_page')
+ 6 SYSTEMPATH/CodeIgniter.php(907): App\Controllers\Home->index()
+ 7 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-09-23 05:52:12 --> view(): Argument #2 ($data) must be of type array, CodeIgniter\Session\Session given, called in /Users/delacruzfamily/repos/CI4_login_sample/app/Controllers/Home.php on line 16
+in SYSTEMPATH/Common.php on line 1128.
+ 1 APPPATH/Controllers/Home.php(16): view('home_page', Object(CodeIgniter\Session\Session))
+ 2 SYSTEMPATH/CodeIgniter.php(907): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')

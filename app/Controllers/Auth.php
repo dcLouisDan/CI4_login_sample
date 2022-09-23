@@ -62,4 +62,46 @@ class Auth extends BaseController
     return view('templates/header', $data) .
       view('auth/success', $data);
   }
+
+  public function login()
+  {
+    $session = session();
+    $model = new UserModel();
+    $email = $this->request->getPost('email');
+    $password = $this->request->getPost('password');
+
+    $data  = $model->where('email', $email)->first();
+
+    if ($data) {
+      $pass = $data['password'];
+      $checkPassword = password_verify($password, $pass);
+
+      if ($checkPassword) {
+        $ses_data = [
+          'id' => $data['id'],
+          'first_name' => $data['first_name'],
+          'last_name' => $data['last_name'],
+          'email' => $data['email'],
+          'isLoggedIn' => TRUE
+        ];
+
+        $session->set($ses_data);
+        return redirect('/');
+      } else {
+        $session->setFlashdata('msg', 'Incorrect password.');
+        return redirect('auth');
+      }
+    } else {
+      $session->setFlashdata('msg', 'Unknown user.');
+      return redirect('auth');
+    }
+  }
+
+  public function logout()
+  {
+    $session = session();
+    $session->destroy();
+
+    return redirect('auth');
+  }
 }

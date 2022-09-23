@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Filters\AuthGuard;
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -35,11 +37,13 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Home::index', ['filter' => 'authGuard']);
 $routes->match(['get', 'post'], 'auth', 'Auth::index');
 $routes->get('signup', 'Auth::signup');
 $routes->post('signup', 'Auth::signup');
 $routes->get('success', 'Auth::success');
+$routes->post('login', 'Auth::login');
+$routes->get('logout', 'Auth::logout', ['filter' => 'authGuard']);
 
 /*
  * --------------------------------------------------------------------

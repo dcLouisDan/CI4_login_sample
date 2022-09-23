@@ -7,38 +7,18 @@
           <span class="h5 ms-4">Login - Sample</span>
         </div>
         <!-- LOGIN FORM -->
-        <?php
-        if (!isset($_SESSION['user_id'])) {
-        ?>
-          <form action="includes/login.inc.php" method="POST" class="me-5 needs-validation" novalidate>
-            <div class="row d-flex align-items-center">
-              <div class="col col-auto position-relative">
-                <input type="email" class="form-control form-control-sm" name="email" placeholder="Email" required>
-                <div class="position-absolute text-small invalid-feedback">
-                  Please enter your email address.
-                </div>
+        <?= form_open('login', 'class="me-5"') ?>
+        <div class="row d-flex align-items-center">
+          <div class="col col-auto position-relative">
+            <input type="email" class="form-control form-control-sm" name="email" placeholder="Email">
 
-              </div>
-              <div class="col col-auto">
-                <input type="password" class="form-control form-control-sm" name="password" placeholder="Password" required>
-                <div class="position-absolute text-small invalid-feedback">
-                  Please enter your password.
-                </div>
-              </div>
-              <input class="col col-auto btn btn-primary btn-sm" name="login" type="submit" value="Login">
-            </div>
-          </form>
-
-        <?php
-        } else {
-        ?>
-          <div class="navbar d-flex align-items-center">
-            <h4 class="me-5 mb-0">Hello <?php echo $_SESSION['first_name'] ?></h4>
-            <a href="includes/logout.inc.php" class="btn btn-danger btn-sm me-5">Logout</a>
           </div>
-        <?php
-        }
-        ?>
+          <div class="col col-auto">
+            <input type="password" class="form-control form-control-sm" name="password" placeholder="Password">
+          </div>
+          <input class="col col-auto btn btn-primary btn-sm" name="login" type="submit" value="Login">
+        </div>
+        <?= form_close() ?>
       </header>
     </div>
     <div class="container w-100 h-100 me-0 d-flex p-0" style="z-index: 0">
@@ -48,6 +28,7 @@
 
         <?php if (isset($validation)) : ?>
           <?= $validation->listErrors(); ?>
+          <?= $errors ?>
         <?php endif; ?>
 
         <?= form_open('signup') ?>
