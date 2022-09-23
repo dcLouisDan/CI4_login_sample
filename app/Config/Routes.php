@@ -37,6 +37,9 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->match(['get', 'post'], 'auth', 'Auth::index');
+$routes->get('signup', 'Auth::signup');
+$routes->post('signup', 'Auth::signup');
+$routes->get('success', 'Auth::success');
 
 /*
  * --------------------------------------------------------------------

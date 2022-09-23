@@ -6,6 +6,6 @@ class Home extends BaseController
 {
     public function index()
     {
-        return 'Hello World';
+        return redirect('auth');
     }
 }

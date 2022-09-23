@@ -1,20 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="includes/person-circle.svg" />
-  <link rel="shortcut icon" href="includes/person-circle.svg" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-  <title>Login</title>
-</head>
-
 <body class="bg-light">
   <div class="d-flex flex-column vh-100">
     <div class="navbar py-0" style="z-index: 5;">
@@ -62,28 +45,33 @@
       <div class="py-5 px-5 h-100 bg-white shadow ms-auto">
         <h1 class="mb-5">Register</h1>
         <!-- SIGN-UP FORM -->
-        <form action="includes/signup.inc.php" method="post">
-          <div class="mb-4 row">
-            <div class="col-6">
-              <input type="text" class="form-control py-3" name="firstName" placeholder="First Name">
-            </div>
-            <div class="col-6">
-              <input type="text" class="form-control py-3" name="lastName" placeholder="Last Name">
-            </div>
+
+        <?php if (isset($validation)) : ?>
+          <?= $validation->listErrors(); ?>
+        <?php endif; ?>
+
+        <?= form_open('signup') ?>
+        <div class="mb-4 row">
+          <div class="col-6">
+            <input type="text" class="form-control py-3" name="firstName" placeholder="First Name">
           </div>
-          <div class="mb-4">
-            <input type="email" class="form-control py-3" name="email" placeholder="Email address">
+          <div class="col-6">
+            <input type="text" class="form-control py-3" name="lastName" placeholder="Last Name">
           </div>
-          <div class="mb-4">
-            <input type="password" class="form-control py-3" name="password" placeholder="Password">
-          </div>
-          <div class="mb-4">
-            <input type="password" class="form-control py-3" name="repeatPassword" placeholder="Repeat Password">
-          </div>
-          <div class="d-grid">
-            <input type="submit" name="signUp" value="Sign-up" class="btn btn-success py-3">
-          </div>
-        </form>
+        </div>
+        <div class="mb-4">
+          <input type="email" class="form-control py-3" name="email" placeholder="Email address">
+        </div>
+        <div class="mb-4">
+          <input type="password" class="form-control py-3" name="password" placeholder="Password">
+        </div>
+        <div class="mb-4">
+          <input type="password" class="form-control py-3" name="repeatPassword" placeholder="Repeat Password">
+        </div>
+        <div class="d-grid">
+          <input type="submit" name="signUp" value="Sign-up" class="btn btn-success py-3">
+        </div>
+        <?= form_close() ?>
 
         <div>
           <?php
