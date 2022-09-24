@@ -44,6 +44,8 @@ $routes->post('signup', 'Auth::signup');
 $routes->get('success', 'Auth::success');
 $routes->post('login', 'Auth::login');
 $routes->get('logout', 'Auth::logout', ['filter' => 'authGuard']);
+$routes->post('upload', 'Home::uploadFile');
+
 
 /*
  * --------------------------------------------------------------------

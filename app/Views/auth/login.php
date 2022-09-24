@@ -27,8 +27,9 @@
         <!-- SIGN-UP FORM -->
 
         <?php if (isset($validation)) : ?>
-          <?= $validation->listErrors(); ?>
-          <?= $errors ?>
+          <div class="text-danger">
+            <?= $validation->listErrors(); ?>
+          </div>
         <?php endif; ?>
 
         <?= form_open('signup') ?>
