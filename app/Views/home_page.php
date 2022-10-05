@@ -44,30 +44,32 @@
         <button type="submit" class="btn btn-success">Upload</button>
         <?= form_close() ?>
 
-        <table class="table border mt-5">
-          <thead class="table-success">
-            <tr>
-              <th>File Name</th>
-              <th>File Size</th>
-              <th>Uploaded By</th>
-              <th>Date Uploaded</th>
-              <th></th>
-            </tr>
-          </thead>
-          <?php if (!empty($files) && is_array($files)) : ?>
-            <tbody>
-              <?php foreach ($files as $file) : ?>
-                <tr>
-                  <td><?= esc($file['file_name']) ?></td>
-                  <td><?= esc($file['file_size']) ?> MB</td>
-                  <td><?= esc($file['uploader_name']) ?></td>
-                  <td><?= esc($file['date_uploaded']) ?></td>
-                  <td><a class="btn btn-info text-white" href="<?= esc($file['location']) ?>" download="<?= esc($file['file_name']) ?>">Download</a></td>
-                </tr>
-              <?php endforeach ?>
-            </tbody>
-          <?php endif ?>
-        </table>
+        <div class="table-responsive">
+          <table class="table border mt-5">
+            <thead class="table-success">
+              <tr>
+                <th>File Name</th>
+                <th>File Size</th>
+                <th>Uploaded By</th>
+                <th>Date Uploaded</th>
+                <th></th>
+              </tr>
+            </thead>
+            <?php if (!empty($files) && is_array($files)) : ?>
+              <tbody>
+                <?php foreach ($files as $file) : ?>
+                  <tr>
+                    <td><?= esc($file['file_name']) ?></td>
+                    <td><?= esc($file['file_size']) ?> MB</td>
+                    <td><?= esc($file['uploader_name']) ?></td>
+                    <td><?= esc($file['date_uploaded']) ?></td>
+                    <td><a class="btn btn-info text-white" href="<?= esc($file['location']) ?>" download="<?= esc($file['file_name']) ?>">Download</a></td>
+                  </tr>
+                <?php endforeach ?>
+              </tbody>
+            <?php endif ?>
+          </table>
+        </div>
       </div>
     </div>
     <!-- Card 3 -->
